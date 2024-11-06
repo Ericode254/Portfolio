@@ -1,5 +1,6 @@
 // Projects.tsx
 import React, { useState } from 'react';
+import Card from '../components/Card';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -69,21 +70,7 @@ const Projects: React.FC = () => {
                   } transition-opacity duration-500 ease-in-out`}
               >
                 <div className="relative bg-[#3c3836] p-6 rounded-lg shadow-lg hover:bg-[#504945] transition duration-300">
-                  <img
-                    src={project.svg}
-                    alt={project.title}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                  />
-                  <h2 className="text-xl font-bold mb-4">{project.title}</h2>
-                  <p className="text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {project.description}
-                  </p>
-                  <a
-                    href={project.link}
-                    className="text-[#d79921] hover:underline opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
-                    View Details
-                  </a>
+                  <Card imgUrl={project.svg} title={project.title} desc={project.description} btnText={project.link} alt={project.title} />
                 </div>
               </div>
             ))}
