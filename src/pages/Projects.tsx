@@ -1,4 +1,3 @@
-// Projects.tsx
 import React, { useState } from 'react';
 import Card from '../components/Card';
 
@@ -37,63 +36,66 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#282828] text-[#ebdbb2]">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#282828] text-[#ebdbb2] px-4">
       <h1 className="text-4xl font-semibold mb-8">My Projects</h1>
 
-      <div className="relative w-full max-w-4xl">
+      <div className="relative w-full max-w-md overflow-hidden">
         {/* Carousel Wrapper */}
-        <div className="flex items-center justify-center relative overflow-hidden">
-          {/* Previous Button */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-2 rounded-full hover:bg-[#d79921] transition duration-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              className="text-[#ebdbb2]"
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-full"
             >
-              <path d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          {/* Project Carousel */}
-          <div className="flex transition-all duration-500 ease-in-out">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className={`flex-shrink-0 w-full max-w-xs mx-4 transform ${index === currentIndex ? "opacity-100" : "opacity-0"
-                  } transition-opacity duration-500 ease-in-out`}
-              >
-                <div className="relative bg-[#3c3836] p-6 rounded-lg shadow-lg hover:bg-[#504945] transition duration-300">
-                  <Card imgUrl={project.svg} title={project.title} desc={project.description} btnText={project.link} alt={project.title} />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Next Button */}
-          <button
-            onClick={handleNext}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-2 rounded-full hover:bg-[#d79921] transition duration-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              className="text-[#ebdbb2]"
-            >
-              <path d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+              <Card
+                imgUrl={project.svg}
+                title={project.title}
+                desc={project.description}
+                link={project.link}
+                alt={project.title}
+              />
+            </div>
+          ))}
         </div>
+
+        {/* Previous Button */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-2 rounded-full hover:bg-[#d79921] transition duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            className="text-[#ebdbb2]"
+          >
+            <path d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={handleNext}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-2 rounded-full hover:bg-[#d79921] transition duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            className="text-[#ebdbb2]"
+          >
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </div>
   );

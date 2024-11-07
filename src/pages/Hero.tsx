@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
             Welcome to my portfolio. Take a look around and see what I've been working on.
           </p>
           <a
-            href="#projects"
+            href="/projects"
             className="inline-block mt-4 px-6 py-3 bg-[#d79921] text-[#282828] font-semibold rounded-md shadow-lg hover:bg-[#fabd2f] transition duration-300"
           >
             View My Projects

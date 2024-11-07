@@ -1,12 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 interface Props {
   imgUrl: string;
   alt: string;
   title: string;
   desc: string;
-  btnText: string;
+  link: string;
 }
 
-const Card = ({ imgUrl, alt, title, desc, btnText }: Props) => {
+const Card = ({ imgUrl, alt, title, desc, link }: Props) => {
+  const navigate = useNavigate()
+
   return (
     <div className="card bg-base-100 image-full w-96 shadow-xl">
       <figure>
@@ -19,7 +23,7 @@ const Card = ({ imgUrl, alt, title, desc, btnText }: Props) => {
         <h2 className="card-title">{title}</h2>
         <p>{desc}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">{btnText}</button>
+          <button className="btn btn-primary" onClick={() => navigate(link)}>Open</button>
         </div>
       </div>
     </div>

@@ -30,17 +30,17 @@ const Navbar: React.FC = () => {
         {/* Links */}
         <ul className={`md:flex md:space-x-6 ${isOpen ? 'block' : 'hidden'} absolute md:relative top-full left-0 w-full md:w-auto bg-[#282828] md:bg-transparent rounded-b-lg shadow-md md:shadow-none p-4 md:p-0`}>
           <li>
-            <a href="#about" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <a href="/about" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
               About
             </a>
           </li>
           <li>
-            <a href="#projects" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <a href="/projects" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
               Projects
             </a>
           </li>
           <li>
-            <a href="#contact" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <a href="/contact" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
               Contact
             </a>
           </li>
