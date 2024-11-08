@@ -13,13 +13,13 @@ const Projects: React.FC = () => {
       title: "Edumeet",
       description: "A site that enables students to schedule meetings with their tutors and fellow students",
       link: "https://github.com/Ericode254/EdumeetClient",
-      svg: "/public/edumeet.jpg",
+      svg: "/edumeet.jpg",
     },
     {
       title: "Egersale",
       description: "A ecommerce site where users can buy and sell products. It will mostly be catered for use in egerton university",
       link: "https://github.com/Ericode254/EgerSaleClient",
-      svg: "/public/egersale.jpg",
+      svg: "/egersale.jpg",
     },
 
   ];
