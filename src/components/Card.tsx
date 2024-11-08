@@ -22,6 +22,7 @@ const Card = ({ imgUrl, alt, title, desc, link }: Props) => {
           src={imgUrl}
           alt={alt}
           className="w-full h-full object-cover transition duration-300 transform hover:scale-110"
+          loading="lazy"
         />
       </figure>
       <div className="card-body p-4">
