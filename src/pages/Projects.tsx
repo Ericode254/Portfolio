@@ -16,10 +16,10 @@ const Projects: React.FC = () => {
       svg: "/public/edumeet.jpg",
     },
     {
-      title: "Project 3",
-      description: "A description of what Project 3 is about. This could be a brief explanation of the project's features and objectives.",
-      link: "#",
-      svg: "/path/to/your/third-project-image.svg",
+      title: "Egersale",
+      description: "A ecommerce site where users can buy and sell products. It will mostly be catered for use in egerton university",
+      link: "https://github.com/Ericode254/EgerSaleClient",
+      svg: "/public/egersale.jpg",
     },
 
   ];
