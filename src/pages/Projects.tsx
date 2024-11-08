@@ -10,10 +10,10 @@ const Projects: React.FC = () => {
       svg: "/path/to/your/first-project-image.svg",
     },
     {
-      title: "Project 2",
-      description: "A description of what Project 2 is about. This could be a brief explanation of the project's features and objectives.",
-      link: "#",
-      svg: "/path/to/your/second-project-image.svg",
+      title: "Edumeet",
+      description: "A site that enables students to schedule meetings with their tutors and fellow students",
+      link: "https://github.com/Ericode254/EdumeetClient",
+      svg: "/public/edumeet.jpg",
     },
     {
       title: "Project 3",
@@ -21,6 +21,7 @@ const Projects: React.FC = () => {
       link: "#",
       svg: "/path/to/your/third-project-image.svg",
     },
+
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,19 +37,23 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#282828] text-[#ebdbb2] px-4">
-      <h1 className="text-4xl font-semibold mb-8">My Projects</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#282828] text-[#ebdbb2] px-4 md:px-8 lg:px-16">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 md:mb-8 text-center">
+        My Projects
+      </h1>
 
-      <div className="relative w-full max-w-md overflow-hidden">
+      <div className="relative w-full max-w-[90vw] lg:max-w-[70vw] xl:max-w-[50vw] overflow-hidden rounded-xl shadow-lg">
         {/* Carousel Wrapper */}
         <div
-          className="flex transition-transform duration-500 ease-in-out"
+          role="list"
+          className="flex transition-transform duration-500 ease-in-out justify-center"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {projects.map((project, index) => (
             <div
+              role="listitem"
               key={index}
-              className="flex-shrink-0 w-full"
+              className="flex-shrink-0 w-full flex justify-center"
             >
               <Card
                 imgUrl={project.svg}
@@ -64,7 +69,8 @@ const Projects: React.FC = () => {
         {/* Previous Button */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-2 rounded-full hover:bg-[#d79921] transition duration-300"
+          aria-label="Previous project"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-3 rounded-full hover:bg-[#d79921] transition duration-300 shadow-md hover:shadow-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +88,8 @@ const Projects: React.FC = () => {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-2 rounded-full hover:bg-[#d79921] transition duration-300"
+          aria-label="Next project"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#3c3836] p-3 rounded-full hover:bg-[#d79921] transition duration-300 shadow-md hover:shadow-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

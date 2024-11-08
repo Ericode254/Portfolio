@@ -20,8 +20,8 @@ const Navbar: React.FC = () => {
 
         {/* Hamburger Icon for Mobile */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-[#d79921] focus:outline-none">
-            <svg className="w-6 h-6" fill="#d79921" viewBox="0 0 24 24">
+          <button onClick={toggleMenu} className="w-6 h-6 bg-[#d79921] focus:outline-none">
+            <svg className="w-6 h-6" fill="#fff" viewBox="0 0 24 24">
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
