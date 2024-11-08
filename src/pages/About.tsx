@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const About: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -12,7 +13,12 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-[#3c3836] rounded-lg shadow-xl mt-3">
+    <motion.div
+      className="max-w-4xl mx-auto p-6 bg-[#3c3836] rounded-lg shadow-xl mt-3"
+      initial={{ opacity: 0, y: 30 }} // Initial position off-screen and hidden
+      animate={{ opacity: 1, y: 0 }}   // Animate to full opacity and normal position
+      transition={{ duration: 1 }}     // Duration for the fade-in effect
+    >
       <div className="text-center mb-6">
         <div className="flex items-center justify-center space-x-2">
           <p className="text-lg text-[#ebdbb2]">GitHub Profile:</p>
@@ -60,7 +66,7 @@ const About: React.FC = () => {
       <p className="text-lg text-[#ebdbb2]">
         Feel free to browse my projects and connect with me!
       </p>
-    </div>
+    </motion.div>
   );
 };
 
