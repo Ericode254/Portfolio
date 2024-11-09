@@ -1,49 +1,50 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 
+// Main Contact component
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{ name: string; email: string; message: string }>({
     name: "",
     email: "",
     message: "",
   });
 
-  const [status, setStatus] = useState(""); // To track form submission status
+  const [status, setStatus] = useState<string>(""); // To track form submission status
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     setStatus("Sending...");
 
     emailjs
       .sendForm(
         "contact_service", // Your email service ID
         "contact_form", // Your email template ID
-        e.target, // The form that is being submitted
+        e.target as HTMLFormElement, // The form being submitted
         "nuMr-PXJOfGdvlZYT" // Your user ID from EmailJS
       )
       .then(
         (result) => {
           console.log(result.text);
           setStatus("Message sent successfully!");
-          setFormData({ name: "", email: "", message: "" });
+          setFormData({ name: "", email: "", message: "" }); // Reset form fields
         },
         (error) => {
           console.error(error.text);
           setStatus("Something went wrong. Please try again later.");
-          setFormData({ name: "", email: "", message: "" });
         }
       );
   };
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-[#3c3836] rounded-lg shadow-xl mt-3">
-      <h1 className="text-4xl font-bold text-[#ebdbb2] text-center mb-6">Contact Me</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-4xl font-bold text-[#ebdbb2]">Contact Me</h1>
+      </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="name" className="text-lg text-[#ebdbb2]">Name</label>
