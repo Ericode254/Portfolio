@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ const Contact: React.FC = () => {
     message: "",
   });
 
+  const [status, setStatus] = useState(""); // To track form submission status
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -14,8 +17,28 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // You can add form submission logic here (e.g., API call)
-    console.log(formData);
+
+    setStatus("Sending...");
+
+    emailjs
+      .sendForm(
+        "contact_service", // Your email service ID
+        "contact_form", // Your email template ID
+        e.target, // The form that is being submitted
+        "nuMr-PXJOfGdvlZYT" // Your user ID from EmailJS
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setStatus("Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error(error.text);
+          setStatus("Something went wrong. Please try again later.");
+          setFormData({ name: "", email: "", message: "" });
+        }
+      );
   };
 
   return (
@@ -68,6 +91,8 @@ const Contact: React.FC = () => {
           Send Message
         </button>
       </form>
+
+      {status && <p className="text-center text-lg text-[#d79921] mt-4">{status}</p>}
     </div>
   );
 };
