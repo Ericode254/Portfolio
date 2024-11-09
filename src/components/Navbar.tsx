@@ -1,11 +1,11 @@
-// Navbar.tsx
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'; // Import NavLink
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false); // Explicitly typing the state
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev); // Toggle menu state
   };
 
   return (
@@ -13,9 +13,9 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-lg font-bold">
-          <a href="/" className="hover:text-[#fabd2f] transition-colors duration-300">
+          <NavLink to="/" className="hover:text-[#fabd2f] transition-colors duration-300">
             My Portfolio
-          </a>
+          </NavLink>
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -25,25 +25,47 @@ const Navbar: React.FC = () => {
               <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" />
             </svg>
           </button>
-        </div>       {/* Links */}
-        <ul className={`md:flex md:space-x-6 ${isOpen ? 'block' : 'hidden'} absolute md:relative top-full left-0 w-full md:w-auto bg-[#282828] md:bg-transparent rounded-b-lg shadow-md md:shadow-none p-4 md:p-0`}>
+        </div>
+
+        {/* Links */}
+        <ul
+          className={`md:flex md:space-x-6 ${isOpen ? 'block' : 'hidden'} absolute md:relative top-full left-0 w-full md:w-auto bg-[#282828] md:bg-transparent rounded-b-lg shadow-md md:shadow-none p-4 md:p-0`}
+        >
           <li>
-            <a href="/about" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <NavLink
+              to="/about"
+              className={({ isActive }) => `block md:inline-block text-center py-2 ${isActive ? 'text-[#fabd2f]' : ''} hover:text-[#fabd2f] transition-colors duration-300`}
+            >
               About
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="/projects" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <NavLink
+              to="/projects"
+              className={({ isActive }) => `block md:inline-block text-center py-2 ${isActive ? 'text-[#fabd2f]' : ''} hover:text-[#fabd2f] transition-colors duration-300`}
+            >
               Projects
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="/contact" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => `block md:inline-block text-center py-2 ${isActive ? 'text-[#fabd2f]' : ''} hover:text-[#fabd2f] transition-colors duration-300`}
+            >
               Contact
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>
+
+      {/* Optional: Close button for mobile menu */}
+      {isOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-[#282828] rounded-b-lg shadow-md p-4">
+          <button onClick={toggleMenu} className="text-right w-full text-[#fabd2f] hover:text-white">
+            Close Menu
+          </button>
+        </div>
+      )}
     </nav>
   );
 };
