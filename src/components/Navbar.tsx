@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -30,17 +34,17 @@ const Navbar: React.FC = () => {
         {/* Links */}
         <ul className={`md:flex md:space-x-6 ${isOpen ? 'block' : 'hidden'} absolute md:relative top-full left-0 w-full md:w-auto bg-[#282828] md:bg-transparent rounded-b-lg shadow-md md:shadow-none p-4 md:p-0`}>
           <li>
-            <NavLink to="/about" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <NavLink to="/about" onClick={closeMenu} className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/projects" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <NavLink to="/projects" onClick={closeMenu} className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
               Projects
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
+            <NavLink to="/contact" onClick={closeMenu} className="block md:inline-block text-center py-2 hover:text-[#fabd2f] transition-colors duration-300">
               Contact
             </NavLink>
           </li>
