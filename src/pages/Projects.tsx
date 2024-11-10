@@ -4,10 +4,10 @@ import Card from '../components/Card';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Project 1",
-      description: "A description of what Project 1 is about. This could be a brief explanation of the project's features and objectives.",
-      link: "#",
-      svg: "/path/to/your/first-project-image.svg",
+      title: "Equation Plotter",
+      description: "A python program that plots mathematical equations",
+      link: "https://github.com/Ericode254/EquationPlotter.git",
+      svg: "/plotter.jpg",
     },
     {
       title: "Edumeet",
