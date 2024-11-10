@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-transparent text-[#ebdbb2] px-4 md:px-8 lg:px-16">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#282828] text-[#ebdbb2] px-4 md:px-8 lg:px-16">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 md:mb-8 text-center">
         My Projects
       </h1>
