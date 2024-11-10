@@ -17,11 +17,11 @@ const Projects: React.FC = () => {
     },
     {
       title: "Egersale",
-      description: "A ecommerce site where users can buy and sell products. It will mostly be catered for use in egerton university",
+      description: "An ecommerce site where users can buy and sell products, mainly catered for use at Egerton University",
       link: "https://github.com/Ericode254/EgerSaleClient",
       svg: "/egersale.jpg",
     },
-
+    // Add more projects as needed
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#282828] text-[#ebdbb2] px-4 md:px-8 lg:px-16">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-transparent text-[#ebdbb2] px-4 md:px-8 lg:px-16">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 md:mb-8 text-center">
         My Projects
       </h1>
@@ -46,14 +46,18 @@ const Projects: React.FC = () => {
         {/* Carousel Wrapper */}
         <div
           role="list"
-          className="flex transition-transform duration-500 ease-in-out justify-center"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          className="flex transition-transform duration-500 ease-in-out transform-gpu"
+          style={{
+            width: `${projects.length * 100}%`,
+            transform: `translateX(-${(100 / projects.length) * currentIndex}%)`
+          }}
         >
           {projects.map((project, index) => (
             <div
               role="listitem"
               key={index}
               className="flex-shrink-0 w-full flex justify-center"
+              style={{ width: `${100 / projects.length}%` }}
             >
               <Card
                 imgUrl={project.svg}
