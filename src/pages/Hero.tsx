@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <section className="h-screen flex items-center justify-center -mt-6">
+    <section className="h-screen flex items-center justify-center -mt-3">
       {/* Centered container with Gruvbox background color */}
       <div className="bg-[#282828] text-[#ebdbb2] max-w-screen-lg mx-auto p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center justify-between">
         {/* Intro Text with Animation */}
