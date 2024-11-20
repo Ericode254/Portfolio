@@ -55,7 +55,7 @@ const About: React.FC = () => {
       </p>
       <p className="text-lg text-[#ebdbb2] mb-6 text-center">
         I am experienced with technologies such as <strong>React</strong>,
-        <strong>TypeScript</strong>, <strong>Tailwind CSS</strong>, and
+        <strong>TypeScript</strong>, <strong>Python</strong>, <strong>Tailwind CSS</strong>, and
         <strong> Node.js</strong>, but I'm always excited to learn new
         technologies and improve my skills.
       </p>
